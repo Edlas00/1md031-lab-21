@@ -4,3 +4,10 @@
 body {
   font-family: arial;
 }
+.ingredients{
+  font-weight: bold;
+}
+#burger_selection{
+  color: white;
+  background-color: black;
+}
