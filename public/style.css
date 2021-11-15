@@ -4,10 +4,30 @@
 body {
   font-family: arial;
 }
+
 .ingredients{
   font-weight: bold;
 }
+
 #burger_selection{
   color: white;
   background-color: black;
+}
+
+#burger_selection >div{
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover{
+  background-color: green;
+  cursor: pointer;
+}
+
+section{
+  margin: 20px;
+}
+
+button{
+  margin-top: 10px;
 }
