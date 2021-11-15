@@ -1,103 +1,17 @@
-<!DOCTYPE HTML>
-<html lang="en">
-
-<head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>BurgerOnline</title>
-  <meta charset="utf-8">
-</head>
-<body>
-  <header class="head">
-      <img src="https://c0.wallpaperflare.com/preview/565/228/846/japanese-japan-restaurant-culture.jpg" alt="">
-      <h1>Välkommen till BurgerOnline</h1>
-  </header>
-  <main>
-    <section id="burger_selection">
-      <h2>Select Burger</h2>
-      <p>This is where you execute burger selection</p>
-      <div class="wrapper">
-      <div style="display:inline-block;">
-        <h3>The classic</h3>
-        <img src="https://images.kitchenstories.io/recipeImages/RP16_01_171_ClassicHamburger_Final_4x3.jpg" alt="The Classic" title="The Classic" width="300" height="250">
-        <ul>
-          <li>600 kCal</li>
-          <li>Contains <span class="ingredients">gluten</span></li>
-        </ul>
-      </div>
-      <div style="display:inline-block;">
-        <h3>Bacon burger</h3>
-        <img src="https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg" alt="Bacon burger" title="Bacon burger" width="300" height="250">
-        <ul>
-          <li>800 kCal</li>
-          <li>Contains <span class="ingredients">lactose</span></li>
-        </ul>
-      </div>
-      <div style="display:inline-block;">
-        <h3>Spicy burger</h3>
-        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F52%2F2019%2F05%2F01%2Fspicy-beef-pork-burgers-with-bacon-barbecued-onions-102383216.jpg&amp;q=85" alt="Spicy burger" title="Spicy burger" width="300" height="250">
-        <ul>
-          <li>850 kCal</li>
-          <li>Very hot!</li>
-        </ul>
-      </div>
-      </div>
-      </section>
-
-      <section id="order_info">
-        <h2>Customer information</h2>
-        <p>This is where you provide necessary information</p>
-        <h3>Delivery information:</h3>
-        <form id="contact">
-          <p>
-            <label for="fullname">Full name</label><br>
-            <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
-          </p>
-          <p>
-            <label for="email">E-mail</label><br>
-            <input type="email" name="em" required="required" placeholder="E-mail address">
-          </p>
-          <p>
-            <label for="street">Street</label><br>
-            <input type="text" name="str" required="required" placeholder="Street name">
-          </p>
-          <p>
-            <label for="house">House</label><br>
-            <input type="number" name="nmb" required="required" placeholder="House number">
-          </p>
-          <p>
-            <label for="payment">Payment options</label><br>
-            <select id="payment" name="pay">
-              <option>Credit card</option>
-              <option>Swish</option>
-              <option>Cash</option>
-              <option>Gift code</option>
-            </select>
-          </p>
-          <p>Gender:</p>
-          <div>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label>
-          </div>
-          <div>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-          </div>
-          <div>
-            <input type="radio" id="undisclosed "name="gender" value="undisclosed">
-            <label for="undisclosed">Undisclosed</label>
-          </div>
-        </form>
-      </section>
-      <button type="submit" name="button">
-        <img src="https://w1.pngwing.com/pngs/546/859/png-transparent-food-icon-delivery-icon-sushi-pizza-delivery-scooter-courier-food-delivery-text-thumbnail.png" style="width:20px;">
-        Place my order!
-      </button>
-    </main>
-
-    <footer>
-      <hr>
-      <p>© 2021 Hypothetical LaserBurgers Inc.</p>
-    </footer>
-
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
   </body>
 </html>
