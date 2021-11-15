@@ -12,11 +12,16 @@ body {
 #burger_selection{
   color: white;
   background-color: black;
+  border: 2px dashed white;
 }
 
-#burger_selection >div{
+#burger_selection > div{
   margin: 10px;
   padding: 10px;
+}
+
+#order_info{
+  border: 2px dashed black;
 }
 
 button:hover{
@@ -26,8 +31,19 @@ button:hover{
 
 section{
   margin: 20px;
+  padding-left: 10px;
+  border-radius: 10px;
 }
 
 button{
   margin-top: 10px;
+}
+
+.head{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.head > img{
+  opacity: 0.75;
 }
