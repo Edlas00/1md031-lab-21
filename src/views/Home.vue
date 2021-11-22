@@ -41,7 +41,6 @@
               <option>Cash</option>
               <option>Gift code</option>
             </select>
-            {{this.selected_pay}}
           </p>
           <p>Gender:</p>
           <div id="v-model-radiobutton">
