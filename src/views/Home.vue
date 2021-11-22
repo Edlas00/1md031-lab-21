@@ -9,6 +9,7 @@
     <Burger v-for="burger in burgers"
             v-bind:burger="burger"
             v-bind:key="burger.name"
+            v-on:orderedBurger="addToOrder($event)"
             />
       </section>
 
@@ -24,14 +25,6 @@
           <p>
             <label for="email">E-mail</label><br>
             <input type="email" v-model="mail" id="email" required="required" placeholder="E-mail address">
-          </p>
-          <p>
-            <label for="street">Street</label><br>
-            <input type="text" v-model="street" id="street" required="required" placeholder="Street name">
-          </p>
-          <p>
-            <label for="house">House</label><br>
-            <input type="number" v-model="nmb" id="housenmb" required="required" placeholder="House number">
           </p>
           <p>
             <label for="payment">Payment options</label><br>
@@ -57,10 +50,18 @@
           </div>
         </form>
       </section>
+      <label>Ange din plats</label>
+      <div id="wrap">
+      <div id="map" v-on:click="changeLocation"></div>
+      <div id="location" v-bind:style="{ left:location.x + 'px', top:location.y +'px'}">
+      T
+      </div>
+      </div>
       <button type="submit" v-on:click="submit">
         <img src="https://w1.pngwing.com/pngs/546/859/png-transparent-food-icon-delivery-icon-sushi-pizza-delivery-scooter-courier-food-delivery-text-thumbnail.png" style="width:20px;">
         Place my order!
       </button>
+
     </main>
 
     <footer>
@@ -104,14 +105,23 @@ export default {
       burgers: menu,
       name: "",
       mail: "",
-      street: "",
-      nmb: "",
       selected_pay: "",
-      gender: ""
+      gender: "",
+      orderedBurgers:{Classic:0, BaconBurger:0, SpicyBurger:0},
+      location:{x:0,y:0}
     }
   }
   ,
   methods: {
+    changeLocation: function(event){
+      const offset=event.target.getBoundingClientRect();
+      this.location.x=event.clientX-offset.left-10;
+      this.location.y=event.clientY-offset.top-10;
+    },
+
+    addToOrder: function(event){
+      this.orderedBurgers[event.name] = event.amount;
+    },
 
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
@@ -129,12 +139,16 @@ export default {
     submit: function(){
       this.name;
       this.mail;
-      this.street;
-      this.nmb;
       this.selected_pay;
       this.gender;
+      console.log(this.orderedBurgers);
+      socket.emit("addOrder", { orderId: this.getOrderNumber(),
+                                details: { x: this.location.x,
+                                           y: this.location.y},
+                                orderItems: this.orderedBurgers
+                              });
 
-      console.log(this.name, this.mail, this.street, this.nmb, this.selected_pay, this.gender);
+
     }
 
 
@@ -143,11 +157,28 @@ export default {
 </script>
 
 <style>
-  /*#map {
-    width: 300px;
-    height: 300px;
-    background-color: red;
-  }*/
+  #map {
+    width: 1920px;
+    height: 1078px;
+    background: url("/img/polacks.jpg");
+  }
+
+  #wrap {
+    overflow:scroll;
+    width: 700px;
+    height: 500px;
+    position:relative;
+  }
+
+  #location{
+    position:absolute;
+    background-color:black;
+    border-radius:15px;
+    width:20px;
+    height:20px;
+    text-align:center;
+    color:white;
+  }
 
   @import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
 
@@ -216,5 +247,7 @@ export default {
     grid-gap: 10px;
     grid-template-columns: 350px 350px 350px;
   }
+
+
 
 </style>
