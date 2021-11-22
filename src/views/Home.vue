@@ -19,45 +19,46 @@
         <form id="contact">
           <p>
             <label for="fullname">Full name</label><br>
-            <input type="text" id="fullname" name="fn" required="required" placeholder="First- and Last name">
+            <input type="text" id="fullname" v-model="name" required="required" placeholder="First- and Last name">
           </p>
           <p>
             <label for="email">E-mail</label><br>
-            <input type="email" name="em" required="required" placeholder="E-mail address">
+            <input type="email" v-model="mail" id="email" required="required" placeholder="E-mail address">
           </p>
           <p>
             <label for="street">Street</label><br>
-            <input type="text" name="str" required="required" placeholder="Street name">
+            <input type="text" v-model="street" id="street" required="required" placeholder="Street name">
           </p>
           <p>
             <label for="house">House</label><br>
-            <input type="number" name="nmb" required="required" placeholder="House number">
+            <input type="number" v-model="nmb" id="housenmb" required="required" placeholder="House number">
           </p>
           <p>
             <label for="payment">Payment options</label><br>
-            <select id="payment" name="pay">
+            <select id="payment" v-model="selected_pay">
               <option>Credit card</option>
               <option>Swish</option>
               <option>Cash</option>
               <option>Gift code</option>
             </select>
+            {{this.selected_pay}}
           </p>
           <p>Gender:</p>
-          <div>
-            <input type="radio" id="male" name="gender" value="male">
+          <div id="v-model-radiobutton">
+            <input type="radio" id="male" v-model="gender" value="male">
             <label for="male">Male</label>
           </div>
           <div>
-            <input type="radio" id="female" name="gender" value="female">
+            <input type="radio" id="female" v-model="gender" value="female">
             <label for="female">Female</label>
           </div>
           <div>
-            <input type="radio" id="undisclosed" name="gender" value="undisclosed">
+            <input type="radio" id="undisclosed" v-model="gender" value="undisclosed">
             <label for="undisclosed">Undisclosed</label>
           </div>
         </form>
       </section>
-      <button type="submit" name="button">
+      <button type="submit" v-on:click="submit">
         <img src="https://w1.pngwing.com/pngs/546/859/png-transparent-food-icon-delivery-icon-sushi-pizza-delivery-scooter-courier-food-delivery-text-thumbnail.png" style="width:20px;">
         Place my order!
       </button>
@@ -101,11 +102,18 @@ export default {
   },
   data: function () {
     return {
-      burgers: menu
+      burgers: menu,
+      name: "",
+      mail: "",
+      street: "",
+      nmb: "",
+      selected_pay: "",
+      gender: ""
     }
   }
   ,
   methods: {
+
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
@@ -118,7 +126,19 @@ export default {
                                 orderItems: ["Beans", "Curry"]
                               }
                  );
+    },
+    submit: function(){
+      this.name;
+      this.mail;
+      this.street;
+      this.nmb;
+      this.selected_pay;
+      this.gender;
+
+      console.log(this.name, this.mail, this.street, this.nmb, this.selected_pay, this.gender);
     }
+
+
   }
 }
 </script>
