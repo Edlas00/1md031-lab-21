@@ -1,4 +1,5 @@
 <template>
+
 <header class="head">
       <img src="https://c0.wallpaperflare.com/preview/565/228/846/japanese-japan-restaurant-culture.jpg" alt="">
       <h1>Välkommen till BurgerOnline</h1>
@@ -72,21 +73,24 @@
 <script>
 import Burger from '../components/Burger.vue'
 import io from 'socket.io-client'
+import menu from '../assets/menu.json'
 
 const socket = io();
 
 const Burger_items = [
   new MenuItem("The Classic","https://images.kitchenstories.io/recipeImages/RP16_01_171_ClassicHamburger_Final_4x3.jpg",
-  600, true, false), new MenuItem("Bacon Burger","https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg",
+  600,true, false), new MenuItem("Bacon Burger","https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg",
   800, false, true), new MenuItem("Spicy burger","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F52%2F2019%2F05%2F01%2Fspicy-beef-pork-burgers-with-bacon-barbecued-onions-102383216.jpg&amp;q=85"
   , 850, false, false)
 ]
 
+const menu_items = JSON.parse(menu);
+
 console.log(Burger_items);
 
-function MenuItem(name, URL, kCal, gluten, lactose){
+function MenuItem(name, image, kCal, gluten, lactose){
   this.name = name;
-  this.image = URL;
+  this.image = image;
   this.kCal = kCal;
   this.gluten = Boolean(gluten);
   this.lactose = Boolean(lactose);
@@ -99,9 +103,10 @@ export default {
   },
   data: function () {
     return {
-      burgers: Burger_items
+      burgers: menu_items
     }
-  },
+  }
+  ,
   methods: {
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);

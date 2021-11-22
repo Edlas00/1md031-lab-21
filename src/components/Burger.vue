@@ -4,7 +4,8 @@
     <img v-bind:src="burger.image" v-bind:title="burger.name" width="300" height="250">
     <ul>
       <li>{{burger.kCal}} kCal</li>
-      <li>Contains <span class="ingredients"> gluten </span></li>
+      <li>Contains<span class="ingredients"> gluten:</span> {{burger.gluten}}</li>
+      <li>Contains<span class="ingredients"> lactose:</span> {{burger.lactose}}</li>
     </ul>
   </div>
 </template>
