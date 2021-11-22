@@ -121,6 +121,7 @@ export default {
 
     addToOrder: function(event){
       this.orderedBurgers[event.name] = event.amount;
+      console.log(this.orderedBurgers);
     },
 
     getOrderNumber: function () {
@@ -145,7 +146,8 @@ export default {
       socket.emit("addOrder", { orderId: this.getOrderNumber(),
                                 details: { x: this.location.x,
                                            y: this.location.y},
-                                orderItems: this.orderedBurgers
+                                orderItems: this.orderedBurgers,
+                                persInfo:{name:this.name, email:this.mail}
                               });
 
 
