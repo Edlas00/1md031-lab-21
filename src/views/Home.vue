@@ -82,9 +82,7 @@ const Burger_items = [
   600,true, false), new MenuItem("Bacon Burger","https://recipe-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg",
   800, false, true), new MenuItem("Spicy burger","https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F52%2F2019%2F05%2F01%2Fspicy-beef-pork-burgers-with-bacon-barbecued-onions-102383216.jpg&amp;q=85"
   , 850, false, false)
-]
-
-const menu_items = JSON.parse(menu);
+];
 
 console.log(Burger_items);
 
@@ -103,7 +101,7 @@ export default {
   },
   data: function () {
     return {
-      burgers: menu_items
+      burgers: menu
     }
   }
   ,
