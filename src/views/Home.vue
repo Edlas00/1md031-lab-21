@@ -147,7 +147,8 @@ export default {
                                 details: { x: this.location.x,
                                            y: this.location.y},
                                 orderItems: this.orderedBurgers,
-                                persInfo:{name:this.name, email:this.mail}
+                                persInfo:{name:this.name, email:this.mail,
+                                pay:this.selected_pay, gender:this.gender}
                               });
 
 
